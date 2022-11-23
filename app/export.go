@@ -29,7 +29,7 @@ func (app *OsmosisApp) ExportAppStateAndValidators(
 		app.prepForZeroHeightGenesis(ctx, jailAllowedAddrs)
 	}
 
-	genState := app.mm.ExportGenesis(ctx, app.AppCodec(), modulesToExport)
+	genState := app.mm.ExportGenesis(ctx, app.AppCodec())
 	appState, err := json.MarshalIndent(genState, "", "  ")
 	if err != nil {
 		return servertypes.ExportedApp{}, err
